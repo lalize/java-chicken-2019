@@ -11,6 +11,7 @@ public class OrderFunction implements Function {
 		final Table table = selectTable();
 		final Menu menu = selectMenu();
 		final Quantity quantity = selectQuantity();
+		table.addOrder(menu, quantity);
 	}
 
 	private Table selectTable() {
