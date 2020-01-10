@@ -1,17 +1,23 @@
 package domain;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Hashtable;
 
 public class Orders {
-	private final Hashtable<Menu, Quantity> orders = new Hashtable<>();
+	private final Hashtable<Menu, Order> orders = new Hashtable<>();
 
 	public void add(Menu menu, Quantity quantity) {
-		final Quantity orderQuantity = orders.get(menu);
-		if (orderQuantity == null) {
-			orders.put(menu, quantity);
+		final Order order = orders.get(menu);
+		if (order == null) {
+			orders.put(menu, new Order(menu, quantity));
 			return;
 		}
-		orders.put(menu, orderQuantity.add(quantity));
+		order.addQuantity(quantity);
+	}
+
+	public Collection<Order> get() {
+		return Collections.unmodifiableCollection(orders.values());
 	}
 
 	public boolean isNotEmpty() {

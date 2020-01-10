@@ -18,7 +18,19 @@ public class Menu {
         return category + " " + number + " - " + name + " : " + price + "원";
     }
 
+    public boolean isChicken() {
+        return category.isChicken();
+    }
+
 	public boolean isNumber(int number) {
         return this.number == number;
 	}
+
+	public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
 }

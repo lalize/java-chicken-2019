@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Collection;
+
 public class Table {
     private final int number;
     private final Orders orders = new Orders();
@@ -23,5 +25,9 @@ public class Table {
 
     public boolean hasOrder() {
         return orders.isNotEmpty();
+    }
+
+    public Collection<Order> orders() {
+        return orders.get();
     }
 }

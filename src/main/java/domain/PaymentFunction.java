@@ -9,6 +9,7 @@ public class PaymentFunction implements Function {
 	@Override
 	public void call() {
 		final Table table = selectTable();
+		OutputView.printOrders(table.orders());
 	}
 
 	private Table selectTable() {

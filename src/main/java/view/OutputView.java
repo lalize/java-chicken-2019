@@ -1,9 +1,14 @@
 package view;
 
 import domain.Menu;
+import domain.Order;
+import domain.Quantity;
 import domain.Table;
 
+import java.util.Collection;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
@@ -33,6 +38,14 @@ public class OutputView {
     public static void printMenus(final List<Menu> menus) {
         for (final Menu menu : menus) {
             System.out.println(menu);
+        }
+    }
+
+    public static void printOrders(final Collection<Order> orders) {
+        System.out.println("## 주문 내역");
+        System.out.println("메뉴 수량 금액");
+        for (final Order order : orders) {
+            System.out.println(order);
         }
     }
 
