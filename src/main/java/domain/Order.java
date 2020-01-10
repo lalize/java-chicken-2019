@@ -7,12 +7,12 @@ public class Order {
 	private final Menu menu;
 	private Quantity quantity;
 
-	public Order(Menu menu, Quantity quantity) {
+	public Order(final Menu menu, final Quantity quantity) {
 		this.menu = menu;
 		this.quantity = quantity;
 	}
 
-	public void addQuantity(Quantity quantity) {
+	public void addQuantity(final Quantity quantity) {
 		final Quantity newQuantity = this.quantity.add(quantity);
 		this.quantity = newQuantity;
 	}

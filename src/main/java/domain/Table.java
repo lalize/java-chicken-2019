@@ -35,7 +35,7 @@ public class Table {
         return number;
     }
 
-    public int payment(Payment payment) {
+    public int payment(final Payment payment) {
         if (!hasOrder()) {
             throw new IllegalStateException("주문이 존재하지 않습니다.");
         }

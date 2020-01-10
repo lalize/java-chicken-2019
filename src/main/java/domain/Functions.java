@@ -11,7 +11,7 @@ public class Functions {
 		functions.put(FunctionType.QUIT, new QuitFunction());
 	}
 
-	public static Function get(FunctionType type) {
+	public static Function get(final FunctionType type) {
 		return functions.get(type);
 	}
 }

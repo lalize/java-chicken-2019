@@ -22,7 +22,7 @@ public class Menu {
         return category.isChicken();
     }
 
-	public boolean isNumber(int number) {
+	public boolean isNumber(final int number) {
         return this.number == number;
 	}
 

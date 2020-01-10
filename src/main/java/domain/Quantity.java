@@ -21,7 +21,7 @@ public class Quantity {
 		return quantity;
 	}
 
-	public Quantity add(Quantity quantity) {
+	public Quantity add(final Quantity quantity) {
 		return new Quantity(this.quantity + quantity.get());
 	}
 }

@@ -7,7 +7,7 @@ import java.util.Hashtable;
 public class Orders {
 	private final Hashtable<Menu, Order> orders = new Hashtable<>();
 
-	public void add(Menu menu, Quantity quantity) {
+	public void add(final Menu menu, final Quantity quantity) {
 		final Order order = orders.get(menu);
 		if (order == null) {
 			orders.put(menu, new Order(menu, quantity));

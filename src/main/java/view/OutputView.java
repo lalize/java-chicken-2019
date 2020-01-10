@@ -56,7 +56,7 @@ public class OutputView {
         System.out.println();
     }
 
-    private static void printBottomLine(Table table) {
+    private static void printBottomLine(final Table table) {
         if (table.hasOrder()) {
             System.out.print(BOTTOM_LINE_ORDER);
         } else {
