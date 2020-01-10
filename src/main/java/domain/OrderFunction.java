@@ -10,6 +10,7 @@ public class OrderFunction implements Function {
 	public void call() {
 		final Table table = selectTable();
 		final Menu menu = selectMenu();
+		final Quantity quantity = selectQuantity();
 	}
 
 	private Table selectTable() {
@@ -24,5 +25,10 @@ public class OrderFunction implements Function {
 		OutputView.printMenus(menus);
 		final int menuNumber = InputView.inputMenuNumber();
 		return MenuRepository.valueOf(menuNumber);
+	}
+
+	private Quantity selectQuantity() {
+		final int quantityOfMenu = InputView.inputQuantityOfMenu();
+		return new Quantity(quantityOfMenu);
 	}
 }
