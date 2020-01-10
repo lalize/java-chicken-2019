@@ -22,7 +22,7 @@ public class Order {
 		return menu.getName() + " " + quantity.get() + " " + getPrice();
 	}
 
-	private int getPrice() {
+	public int getPrice() {
 		final int price = menu.getPrice() * quantity.get();
 		if (menu.isChicken()) {
 			final int discount = quantity.get() / CHICKEN_DISCOUNT_UNIT * CHICKEN_DISCOUNT_PRICE;

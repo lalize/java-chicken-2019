@@ -30,4 +30,17 @@ public class Table {
     public Collection<Order> orders() {
         return orders.get();
     }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public int payment(Payment payment) {
+        if (!hasOrder()) {
+            throw new IllegalStateException("주문이 존재하지 않습니다.");
+        }
+        final int price = payment.calculate(orders.getPrice());
+        orders.clear();
+        return price;
+    }
 }

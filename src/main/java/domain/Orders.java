@@ -23,4 +23,15 @@ public class Orders {
 	public boolean isNotEmpty() {
 		return !orders.isEmpty();
 	}
+
+	public void clear() {
+		orders.clear();
+	}
+
+	public int getPrice() {
+		return orders.values()
+				.stream()
+				.mapToInt(Order::getPrice)
+				.sum();
+	}
 }
