@@ -9,6 +9,7 @@ public class OrderFunction implements Function {
 	@Override
 	public void call() {
 		final Table table = selectTable();
+		final Menu menu = selectMenu();
 	}
 
 	private Table selectTable() {
@@ -16,5 +17,12 @@ public class OrderFunction implements Function {
 		OutputView.printTables(tables);
 		final int tableNumber = InputView.inputTableNumber();
 		return TableRepository.valueOf(tableNumber);
+	}
+
+	private Menu selectMenu() {
+		final List<Menu> menus = MenuRepository.menus();
+		OutputView.printMenus(menus);
+		final int menuNumber = InputView.inputMenuNumber();
+		return MenuRepository.valueOf(menuNumber);
 	}
 }
