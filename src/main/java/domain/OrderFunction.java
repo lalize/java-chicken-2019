@@ -8,10 +8,14 @@ import view.OutputView;
 public class OrderFunction implements Function {
 	@Override
 	public void call() {
-		final Table table = selectTable();
-		final Menu menu = selectMenu();
-		final Quantity quantity = selectQuantity();
-		table.addOrder(menu, quantity);
+		try {
+			final Table table = selectTable();
+			final Menu menu = selectMenu();
+			final Quantity quantity = selectQuantity();
+			table.addOrder(menu, quantity);
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	private Table selectTable() {

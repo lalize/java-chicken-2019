@@ -8,11 +8,15 @@ import view.OutputView;
 public class PaymentFunction implements Function {
 	@Override
 	public void call() {
-		final Table table = selectTable();
-		OutputView.printOrders(table.orders());
-		final Payment payment = selectPayment(table);
-		final int price = table.payment(payment);
-		OutputView.printPrice(price);
+		try {
+			final Table table = selectTable();
+			OutputView.printOrders(table.orders());
+			final Payment payment = selectPayment(table);
+			final int price = table.payment(payment);
+			OutputView.printPrice(price);
+		} catch (IllegalArgumentException | IllegalStateException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	private Table selectTable() {
