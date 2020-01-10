@@ -20,4 +20,8 @@ public class Table {
     public void addOrder(Menu menu, Quantity quantity) {
         orders.add(menu, quantity);
     }
+
+    public boolean hasOrder() {
+        return orders.isNotEmpty();
+    }
 }

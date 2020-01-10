@@ -13,4 +13,8 @@ public class Orders {
 		}
 		orders.put(menu, orderQuantity.add(quantity));
 	}
+
+	public boolean isNotEmpty() {
+		return !orders.isEmpty();
+	}
 }
