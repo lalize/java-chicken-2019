@@ -19,7 +19,7 @@ public class Table {
 		return this.number == number;
 	}
 
-	public void addOrder(Menu menu, Quantity quantity) {
+	public void addOrder(final Menu menu, final Quantity quantity) {
 		orders.add(menu, quantity);
 	}
 
@@ -43,7 +43,7 @@ public class Table {
 		orders.clear();
 	}
 
-	public int payment(Payment payment) {
+	public int payment(final Payment payment) {
 		if (hasNotOrder()) {
 			throw new IllegalStateException("주문이 존재하지 않습니다.");
 		}
