@@ -34,6 +34,6 @@ public class OrderFunction implements Function {
 
 	private Quantity selectQuantity() {
 		final int quantityOfMenu = InputView.inputQuantityOfMenu();
-		return new Quantity(quantityOfMenu);
+		return Quantity.valueOf(quantityOfMenu);
 	}
 }

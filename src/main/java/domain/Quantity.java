@@ -11,6 +11,10 @@ public class Quantity {
 		this.quantity = quantity;
 	}
 
+	public static Quantity valueOf(final int quantity) {
+		return new Quantity(quantity);
+	}
+
 	private void validate(final int quantity) {
 		if (quantity < MIN || quantity > MAX) {
 			throw new IllegalArgumentException("수량은 0 이상 99까지 입니다.");
