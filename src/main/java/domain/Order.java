@@ -3,6 +3,7 @@ package domain;
 public class Order {
 	private static final int CHICKEN_DISCOUNT_UNIT = 10;
 	private static final int CHICKEN_DISCOUNT_PRICE = 10_000;
+	private static final int ZERO = 0;
 
 	private final Menu menu;
 	private Quantity quantity;
@@ -13,8 +14,7 @@ public class Order {
 	}
 
 	public void addQuantity(final Quantity quantity) {
-		final Quantity newQuantity = this.quantity.add(quantity);
-		this.quantity = newQuantity;
+		this.quantity = this.quantity.add(quantity);
 	}
 
 	@Override
@@ -22,12 +22,14 @@ public class Order {
 		return menu.getName() + " " + quantity.get() + " " + getPrice();
 	}
 
-	public int getPrice() {
-		final int price = menu.getPrice() * quantity.get();
+	private int discount() {
 		if (menu.isChicken()) {
-			final int discount = quantity.get() / CHICKEN_DISCOUNT_UNIT * CHICKEN_DISCOUNT_PRICE;
-			return price - discount;
+			return quantity.get() / CHICKEN_DISCOUNT_UNIT * CHICKEN_DISCOUNT_PRICE;
 		}
-		return price;
+		return ZERO;
+	}
+
+	public int getPrice() {
+		return menu.getPrice() * quantity.get() - discount();
 	}
 }
