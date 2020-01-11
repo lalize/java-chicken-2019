@@ -16,15 +16,11 @@ public class Orders {
 		order.addQuantity(quantity);
 	}
 
-	public Collection<Order> get() {
+	public Collection<Order> orders() {
 		return Collections.unmodifiableCollection(orders.values());
 	}
 
-	public boolean hasOrder() {
-		return !orders.isEmpty();
-	}
-
-	public boolean hasNotOrder() {
+	public boolean isEmpty() {
 		return orders.isEmpty();
 	}
 
@@ -32,10 +28,10 @@ public class Orders {
 		orders.clear();
 	}
 
-	public int getPrice() {
+	public int price() {
 		return orders.values()
 				.stream()
-				.mapToInt(Order::getPrice)
+				.mapToInt(Order::price)
 				.sum();
 	}
 }

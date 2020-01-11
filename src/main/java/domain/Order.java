@@ -19,7 +19,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return menu.getName() + " " + quantity.get() + " " + getPrice();
+		return menu.getName() + " " + quantity.get() + " " + price();
 	}
 
 	private int discount() {
@@ -29,7 +29,7 @@ public class Order {
 		return ZERO;
 	}
 
-	public int getPrice() {
+	public int price() {
 		return menu.getPrice() * quantity.get() - discount();
 	}
 }
