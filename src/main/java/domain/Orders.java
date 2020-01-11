@@ -20,8 +20,12 @@ public class Orders {
 		return Collections.unmodifiableCollection(orders.values());
 	}
 
-	public boolean isNotEmpty() {
+	public boolean hasOrder() {
 		return !orders.isEmpty();
+	}
+
+	public boolean hasNotOrder() {
+		return orders.isEmpty();
 	}
 
 	public void clear() {

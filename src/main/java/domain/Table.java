@@ -24,7 +24,11 @@ public class Table {
 	}
 
 	public boolean hasOrder() {
-		return orders.isNotEmpty();
+		return orders.hasOrder();
+	}
+
+	public boolean hasNotOrder() {
+		return orders.hasNotOrder();
 	}
 
 	public Collection<Order> orders() {
@@ -36,7 +40,7 @@ public class Table {
 	}
 
 	public int payment(final Payment payment) {
-		if (!hasOrder()) {
+		if (hasNotOrder()) {
 			throw new IllegalStateException("주문이 존재하지 않습니다.");
 		}
 		final int price = payment.calculate(orders.getPrice());
