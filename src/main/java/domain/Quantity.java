@@ -1,7 +1,7 @@
 package domain;
 
 public class Quantity {
-	private static final int MIN = 0;
+	private static final int MIN = 1;
 	private static final int MAX = 99;
 
 	private final int quantity;
@@ -17,7 +17,7 @@ public class Quantity {
 
 	private void validate(final int quantity) {
 		if (quantity < MIN || quantity > MAX) {
-			throw new IllegalArgumentException("수량은 0 이상 99까지 입니다.");
+			throw new IllegalArgumentException("수량은 1 이상 99까지 입니다.");
 		}
 	}
 
