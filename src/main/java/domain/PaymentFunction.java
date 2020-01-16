@@ -10,7 +10,6 @@ public class PaymentFunction implements Function {
 	public void call() {
 		try {
 			final Table table = selectTable();
-			OutputView.printOrders(table.orders());
 			final Payment payment = selectPayment(table);
 			final int price = table.payment(payment);
 			OutputView.printPrice(price);
@@ -27,6 +26,7 @@ public class PaymentFunction implements Function {
 	}
 
 	private Payment selectPayment(final Table table) {
+		OutputView.printOrders(table.orders());
 		final int paymentNumber = InputView.inputPaymentNumber(table.getNumber());
 		return Payment.valueOf(paymentNumber);
 	}
